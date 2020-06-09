@@ -7,7 +7,6 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
-  selector:
-      matchLabels:
-        name: "data01"
+      storage: 400Mi
+  storageClassName: standard
+  
