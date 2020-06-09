@@ -15,9 +15,7 @@ spec:
         app: elasticsearch
     spec:
       containers:
-      - name: elasticsearch
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
-        env:
+      - env:
         - name: node.name
           value: "elasticsearch"
         - name: cluster.name
@@ -27,13 +25,15 @@ spec:
         - name: bootstrap.memory_lock
           value: "true"
         - name: ES_JAVA_OPTS
-          value: "-Xms512m -Xmx512m"
+          value: "-Xms512m -Xmx512m"  
+        name: elasticsearch
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
         volumeMounts:
         - mountPath: /usr/share/elasticsearch/data
           name: data01
         ports:
         - containerPort: 9200
-        volumes:
-        - name: data01
-          persistentVolumeClaim:
-            claimName: data01
+      volumes:
+      - name: data01
+        persistentVolumeClaim:
+          claimName: data01
