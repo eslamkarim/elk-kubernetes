@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: eslamkarim/ngnix-app
+        image: eslamkarim/nginx-app
         ports:
         - containerPort: 8080
