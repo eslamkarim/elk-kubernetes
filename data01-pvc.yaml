@@ -8,3 +8,6 @@ spec:
   resources:
     requests:
       storage: 100Mi
+  selector:
+      matchLabels:
+        name: "data01"
